@@ -1,0 +1,15 @@
+<nav>
+    {% if request.path == '/notes/new' %}
+        <h1>Add New Note</h1>
+    {% elif '/notes/' in request.path %}
+        <h1>Edit Note</h1>
+    {% else %}
+        <h1>{{request.user}}'s Notes</h1>
+    {% endif %}
+
+    <ul>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'note_new' %}">New Note</a></li>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+    </ul>
+</nav>

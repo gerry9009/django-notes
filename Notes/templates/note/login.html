@@ -1,0 +1,14 @@
+{% extends 'note/layout.html' %}
+{% block content %}
+    <h1>Login</h1>
+    <form action="" method="POST" class="user-form">
+        {% csrf_token %}
+        <input type="text" placeholder="Username" name="un" />
+        <input type="password" placeholder="Password" name="pw" />
+        <button type="submit">Login</button>
+    </form>
+    {% if error %}
+        <p>{{error}}</p>
+    {% endif %}
+    <a href="{%url "registration"  %}">Create user</a>
+{% endblock %}

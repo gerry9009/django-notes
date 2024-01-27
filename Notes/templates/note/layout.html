@@ -1,0 +1,24 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Notes</title>
+    <link rel="stylesheet" href="{% static "note/styles/layout.css" %}">
+
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    {% if request.user.is_authenticated %}
+        {% include 'note/nav.html' %}
+    {% endif %}
+    
+    <section>
+        {%block content %}
+        {% endblock %}
+    </section>
+</body>
+</html>

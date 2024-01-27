@@ -1,0 +1,30 @@
+{% extends 'note/layout.html' %}
+
+{% block content %}
+<h2>This note is include in <span>{{note.group}}</span> group</h2>
+<p>Created: {{note.created}}</p>
+<p>Last update: {{note.updated}}</p>
+
+<form action="" method="POST" class="note-form">
+    {% csrf_token %}
+    {{form}}
+    <div class="note-btn-container">
+        <a 
+            href="{%url 'index' %}"
+            class="note-anchor"
+        >Back</a>
+        <a 
+            href="{% url 'note_delete' note.id %}"
+            class="note-anchor note-anchor_delete"
+        >Delete Note</a>
+        <button 
+            type="submit" 
+            class="note-form-btn"
+        >Save</button>
+    </div>
+    
+</form>
+
+
+
+{% endblock %}

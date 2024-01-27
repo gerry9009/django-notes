@@ -1,0 +1,14 @@
+{% extends "note/layout.html" %}
+
+{% block content %}
+<form action="" method="POST" class="note-form">
+    {% csrf_token %}
+    {{form}}
+    <button 
+        type="submit" 
+        class="note-form-btn"
+    >Add Note</button>
+</form>
+
+
+{% endblock %}

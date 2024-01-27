@@ -1,0 +1,68 @@
+{% extends 'note/layout.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static "note/styles/index.css" %}">
+    <link rel="stylesheet" href="{% static "note/styles/modal.css" %}">
+{% endblock %}
+
+{% block content %}
+    <div class="fixed-add-group">
+        <form action="" method="POST" >
+            {% csrf_token %}
+            <input type="text" name="name" placeholder='Add new group'>
+            <button type="submit">Add</button>
+        </form>
+    </div>
+    
+
+    <div class="groups-container js-groups-container">
+        {% for group in groups %}
+
+            <div class="group">
+                <h2 class="group-title">{{group}}</h2>
+                <a 
+                    href="{% url 'delete_group' group.id %}"
+                    class="group-delete"
+                >Delete Group</a>
+                <div id="{{ group.id }}" class="notes-container">
+                    {% for note in notes %}
+
+                        {% if note.group == group %}
+                            <div class="note js-notes" draggable="true" data-note-id={{note.id}}>
+                                <div class="note-top">
+                                    <h3 data-note-id={{note.id}}>{{note.title}}</h3>
+                                </div>
+                                <div class="note-bottom">
+                                    <a href="{% url 'note_page' note.id %}" class="js-note-anchor note-anchor">
+                                        <svg stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M21 3L15 3M21 3L12 12M21 3V9" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/> <path d="M21 13V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3H11" stroke="currentColor" stroke-linecap="round"/> </svg>
+                                    </a>
+                                </div>
+                                
+                            </div>
+                        {% endif %}
+
+                    {% endfor %}
+                </div>
+                
+                <form action="" class="js-add-note add-note">
+                    <input data-group="{{ group.id }}" type="text" placeholder="Add new note..." class="add-note-input">
+                    <button type="submit" class="add-note-btn">+</button>
+                </form>
+
+            </div>
+
+        {% endfor %}
+
+        <div class="group add-group js-add-group">
+            <h2 class="group-title add-group-title">Add group</h2>
+            <form action="" class="add-note">
+                <input type="text" placeholder="Add new group..." class="add-note-input">
+                <button type="submit" class="add-note-btn add-group-btn">+</button>
+            </form>
+        </div>
+
+
+    </div>            
+    <script src="{% static "note/js/index.js" %}" type="module"></script>
+{% endblock %}

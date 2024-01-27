@@ -1,0 +1,225 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --none-color: rgba(0, 0, 0, 0);
+  --main-color: rgb(139, 155, 135);
+  --main-second-color: rgb(72, 85, 69);
+  --black-color: rgb(40, 41, 40);
+  --black-B-color: rgba(0, 0, 0, 0.25);
+  --black-C-color: rgba(0, 0, 0.5);
+  --black-D-color: rgba(0, 0, 0.75);
+  --gray-color: rgb(201, 201, 201);
+  --white-color: rgba(255, 255, 255);
+  --red-color: rgb(167, 30, 30);
+}
+
+body {
+  background: var(--main-color);
+}
+
+nav {
+  background: var(--main-second-color);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 90;
+  padding: 0 1rem;
+  color: var(--white-color);
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-decoration: none;
+  gap: 2rem;
+  list-style: none;
+  padding: 1rem 0;
+}
+
+nav a {
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  padding: 1rem;
+  color: var(--white-color);
+  border: 2px solid var(--white-color);
+  width: 10rem;
+  border-radius: 6px;
+}
+
+nav a:hover {
+  background-color: var(--gray-color);
+  color: var(--main-second-color);
+  border: 2px solid var(--gray-color);
+}
+
+section {
+  margin: 6rem auto 2rem;
+  padding: 1rem;
+  min-width: 90%;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-form {
+  border: 2px solid var(--black-B-color);
+  border-radius: 6px;
+  padding: 2rem;
+  width: 60%;
+  max-width: 400px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.user-form ul {
+  list-style: none;
+  padding: 0.5rem 1rem;
+  color: var(--red-color);
+}
+
+.user-form p {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+}
+
+.user-form p span {
+  font-size: 1rem;
+  color: var(--red-color);
+  padding: 0.5rem 1rem;
+}
+
+.user-form input {
+  padding: 0.5rem 1rem;
+  outline: none;
+  border: 1px solid var(--none-color);
+  border-radius: 6px;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+.user-form button {
+  cursor: pointer;
+  background: var(--gray-color);
+  color: var(--black-color);
+  border-radius: 6px;
+  border: 1px solid var(--gray-color);
+  outline: none;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.user-form button:hover {
+  background: var(--black-B-color);
+  border: 1px solid var(--black-B-color);
+  color: var(--gray-color);
+}
+
+.note-form {
+  background-color: rgb(139, 155, 135);
+  height: 95%;
+  width: 60%;
+  max-width: 800px;
+  margin: auto;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  color: #000;
+  border-radius: 10px;
+}
+
+.note-form label {
+  display: none;
+}
+
+.note-form-input {
+  padding: 0.5rem 1rem;
+  background: var(--none-color);
+  color: var(--black-color);
+  outline: none;
+  border: 1px solid var(--none-color);
+  border-radius: 6px;
+  font-size: 1.8rem;
+  width: 100%;
+}
+
+.note-form-input_text {
+  height: 0;
+  padding-bottom: 60%;
+  font-size: 1.2rem;
+  resize: none;
+  overflow-y: scroll;
+}
+
+.note-form-input_dropdown {
+  border: 1px solid var(--black-C-color);
+}
+
+.note-form-input:focus {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.25);
+  color: #fff;
+}
+
+.note-form-input:focus::placeholder {
+  color: var(--gray-color);
+}
+
+.note-form-btn {
+  cursor: pointer;
+  padding: 1rem;
+  width: 200px;
+  background: var(--gray-color);
+  color: var(--black-color);
+  border-radius: 6px;
+  border: 1px solid var(--gray-color);
+  outline: none;
+  font-size: 1.5rem;
+  align-self: flex-end;
+}
+
+.note-form-btn:hover {
+  background: var(--black-B-color);
+  outline: none;
+  color: var(--gray-color);
+}
+
+.note-btn-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.note-anchor {
+  color: var(--gray-color);
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.note-anchor:hover {
+  color: var(--black-color);
+}
+
+.note-anchor_delete {
+  padding: 0;
+  color: var(--red-color);
+}
